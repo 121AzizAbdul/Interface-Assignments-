@@ -1,0 +1,62 @@
+public interface Measure{
+    double getMeasure();
+    String getGrade();
+}
+
+public class Data{
+    
+    public static String maxElement(Measure[] obj){
+        double mx=0;
+        String st="";
+        for(int i=0;i<obj.length;i++){
+          if(obj[i].getMeasure()>mx){
+           mx=obj[i].getMeasure();
+           st=obj[i].getGrade();
+           }
+        }
+        System.out.println("Highest Height "+mx);
+        //System.out.println("Tallest person "+st);
+        return st;
+    
+    }
+    public static double avarage (Measure[] obj){
+        double sum=0;
+        for(int i=0;i<obj.length;i++){
+          sum+=obj[i].getMeasure();
+        
+        }
+        
+        return sum/obj.length;
+    }
+}
+public class Quiz implements Measure{
+  
+  private int mark;
+  private String grade;
+  public Quiz(int mark,String grade){
+      this.mark=mark;
+      this.grade=grade;
+  }
+  public double getMeasure(){
+      return mark;
+  }
+  public String getGrade(){
+      return grade;
+  }
+    
+}
+public class Runner{
+    public static void main(String []args){
+        double score;
+        Quiz[] give=new Quiz[5];
+        give[0]=new Quiz(80,"Aksat");
+        give[1]=new Quiz(70,"MAliva");
+        give[2]=new Quiz(60,"Hasina");
+        give[3]=new Quiz(50,"Kader");
+        give[4]=new Quiz(40,"Opu");
+        
+        System.out.println("Avarage Height: "+Data.avarage(give));
+      System.out.println("Tallest person: "+Data.maxElement(give));
+    }
+    
+}
