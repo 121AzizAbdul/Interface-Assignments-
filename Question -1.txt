@@ -1,0 +1,14 @@
+public interface Measure{
+    double getMeasure();
+}
+
+public class Data{
+    
+    public static double maxElement(Measure[] obj){
+        double mx=0;
+        for(int i=0;i<obj.length;i++){
+          if(obj[i].getMeasure()>mx) 
+           mx=obj[i].getMeasure();
+        }
+        return mx;
+    }
