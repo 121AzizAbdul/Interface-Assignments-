@@ -1,0 +1,49 @@
+public interface Measure{
+   double getValue();
+}
+
+public class Data{
+    
+    public static double Largest (Measure[] obj){
+        double mx=0;
+        for(int i=0;i<obj.length;i++){
+          if(obj[i].getValue()>mx){
+           mx=obj[i].getValue();
+           }
+        }
+        return mx;
+    
+    }
+    public static double Lowest (Measure[] obj){
+        double mn=1000000;
+        for(int i=0;i<obj.length;i++){
+          if(obj[i].getValue()<mn){
+        mn=obj[i].getValue();
+        }
+      }
+        return mn;
+    }
+}
+public class Pop implements Measure{
+  
+  private double measures;
+  
+  public Pop(double m){
+      measures=m;
+  }
+  public double getValue(){
+      return measures;
+  }
+}
+public class Runner{
+    public static void main(String []args){
+        double score;
+        Pop[] man=new Pop[4];
+        man[0]=new Pop(183);
+        man[1]=new Pop(145);
+        man[2]=new Pop(168);
+        man[3]=new Pop(179);
+     System.out.println("Largest:"+Data.Largest(man));
+     System.out.println("Lowest:"+Data.Lowest(man));
+    }
+}
