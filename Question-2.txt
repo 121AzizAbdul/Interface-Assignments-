@@ -1,0 +1,57 @@
+public interface Measure{
+    double getMeasure();
+}
+
+public class Data{
+    
+    public static double maxElement(Measure[] obj){
+        double mx=0;
+        for(int i=0;i<obj.length;i++){
+          if(obj[i].getMeasure()>mx) 
+           mx=obj[i].getMeasure();
+        }
+        return mx;
+    }
+    public static double avarage (Measure[] obj){
+        double sum=0;
+        for(int i=0;i<obj.length;i++){
+          sum+=obj[i].getMeasure();
+        
+        }
+        
+        return sum/obj.length;
+    }
+}
+public class Quiz implements Measure{
+  
+  private int mark;
+  private String grade;
+  public Quiz(int mark,String grade){
+      this.mark=mark;
+      this.grade=grade;
+  }
+  public double getMeasure(){
+      return mark;
+  }
+  public String getGrade(){
+      return grade;
+  }
+    
+}
+public class Runner{
+    public static void main(String []args){
+        double score;
+        Quiz[] give=new Quiz[5];
+        give[0]=new Quiz(80,"A+");
+        give[1]=new Quiz(70,"A");
+        give[2]=new Quiz(60,"A-");
+        give[3]=new Quiz(50,"B");
+        give[4]=new Quiz(40,"C");
+        
+        System.out.println("Avarage mark: "+Data.avarage(give));
+        //Measure m=(Data.maxElement(give));
+        
+        System.out.println("Highest mark: "+Data.maxElement(give));
+    }
+    
+}
